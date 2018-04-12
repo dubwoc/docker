@@ -1,0 +1,6 @@
+# docker run --name=ampache -d -v /path/to/your/music:/media:ro -p 80:80 ampache/ampache
+VERSION=$(grep -v ^# VERSION)
+URI=gcr.io/nasregistry/ampache:${VERSION}
+docker kill ampache ; docker rm ampache
+docker run --restart=always -v /Volumes/ampache:/var/www/html/config -v /var/run/mysqld:/var/run/mysqld  -v /Nas/:/Nas  -p 84:80 -d --name ampache ${URI}
+# logs ampache

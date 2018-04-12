@@ -1,0 +1,1 @@
+docker exec -ti ampache /usr/bin/php /var/www/html/bin/catalog_update.inc -m -c -v -a
